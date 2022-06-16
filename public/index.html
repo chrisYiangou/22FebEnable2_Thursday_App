@@ -37,7 +37,7 @@
             <!-- Read ONE Area -->
             <div class="col-6">
                 <form class="mb-2">
-                    <h2>Read One</h2>
+                    <h2>Read by ID</h2>
                     <input type="text" id="inputOne" class="form-control" placeholder="Enter item ID to create" />
                     <button type="button" class="btn btn-primary mt-2" id="buttonOne">Read by ID</button>
                   
@@ -52,7 +52,7 @@
             </div>
             <hr>
 
-            <!-- Create Area -->
+            <!-- Update Area -->
             <div class="col-6">
                 <form class="mb-2">
                     <h2>Update</h2>
@@ -66,17 +66,37 @@
                 </form>
             </div>
 
+            <div class="col-6">
+                <form class="mb-2">
+                    <h2>Updated Item</h2>
+                    <ul id="listUpdate"></ul>
+                    <!-- get the last updated and read it -->
+                </form>
+
+            </div>
+            <hr>
+
             <!-- Delete Area -->
             <div class="col-6">
                 <form class="mb-2">
                     <h2>Delete by ID</h2>
-                    <input type="number" id="delete_id" class="form-control mt-2"
+                    <input type="number" id="deleteId" class="form-control mt-2"
                         placeholder="Enter id of the item to Delete" />
                     <button type="button" class="btn btn-primary mt-2" id="buttonDelete">DELETE</button>
                 </form>
             </div>
-        </div>
+       
 
+                    <!-- Read All Area -->
+                    <div class="col-6">
+                        <form class="mb-2">
+                            <h2>Read Remaining </h2>
+                            <ul id="listDeleted"></ul>
+                        </form>
+        
+                    </div>
+                    <hr>
+                </div>
 
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script type="module" src="./script.js"></script>
