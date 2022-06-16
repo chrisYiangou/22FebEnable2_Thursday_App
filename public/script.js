@@ -13,7 +13,7 @@ const writeItem = item => {
 
 // GET all function
 const get = () => {
-  DOM.listOutput.innerHTML = ``;
+  DOM.listOne.innerHTML = ``;
 
   axios.get(`/read`)
     .then((response) => {
@@ -29,6 +29,26 @@ const get = () => {
     });
 }
 
+
+// // GET ONE function
+// const getOne = () => {
+//   DOM.listOutput.innerHTML = ``;
+//   const id=inputOne;
+//   axios.get('/read/:id')
+//     .then((response) => {
+//       if (!Array.isArray(response.data)) {
+//         writeItem(response.data);
+//       } else {
+//         for (let item of response.data) {
+//           writeItem(item);
+//         }
+//       }
+//     }).catch((err) => {
+//       console.log(err);
+//     });
+// }
+
+
 // POST function
 const post = () => {
   axios.post(`/create`, {   name : DOM.inputName.value,
@@ -42,8 +62,11 @@ const post = () => {
     });
 }
 
-// set up the buttons' on click events
+// Set up the buttons' on click events
+// CREAT 
 DOM.buttonCreate.onclick = () => post();
+// READ One
+DOM.buttonOne.onclick = () => get();
 
 // run the get function on page load
 get();
