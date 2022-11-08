@@ -78,7 +78,7 @@ app.get('/read', (req,res) => {
     });
 });
 
-// READ ONE (Get)
+// READ ONE (GetOne)
 app.get('/read/:id', (req,res) => {
     // log that we are running the read operation
     log(`\nRead - GET`);

@@ -29,6 +29,25 @@ const get = () => {
     });
 }
 
+
+// // GET ONE function
+const getOne = () => {
+  DOM.listOne.innerHTML = ``;
+  axios.get('/read/:id')
+    .then((response) => {
+      if (!Array.isArray(response.data)) {
+        writeItem(response.data);
+      } else {
+        for (let item of response.data) {
+          writeItem(item);
+        }
+      }
+    }).catch((err) => {
+      console.log(err);
+    });
+}
+
+
 // POST function
 const post = () => {
   axios.post(`/create`, {   name : DOM.inputName.value,
@@ -42,8 +61,42 @@ const post = () => {
     });
 }
 
-// set up the buttons' on click events
+
+// UPDATE function
+const put = () => {
+  axios.put(`/update/:id`, {   name : DOM.updateName.value,
+                            description : DOM.updateDescription.value, 
+                            price : DOM.updatePrice.value})
+    .then((response) => {
+      console.log(response);
+      get();
+    }).catch((err) => {
+      console.log(err);
+    });
+}
+
+// DELETE function
+const deletebyID = () => {
+  axios.delete(`/delete/:id`)
+    .then((response) => {
+      console.log(response);
+      get();
+    }).catch((err) => {
+      console.log(err);
+    });
+}
+
+// Set up the buttons' on click events
+// CREAT 
 DOM.buttonCreate.onclick = () => post();
+// READ by Id
+DOM.buttonOne.onclick = () => getOne();
+// DELETE by ID
+DOM.buttonUpdate.onclick = () => put();
+
+// DELETE by ID
+DOM.buttonDelete.onclick = () => deletebyID();
+
 
 // run the get function on page load
 get();
